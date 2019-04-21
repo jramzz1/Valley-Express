@@ -1,11 +1,11 @@
 # Valley Express
 HackSTX 2019 submission for challenge #2 Transportation issues in the RGV
 
-Homepage: express.html
+### How To Run
+Program built with Ruby on Rails, need working environment to run.
+- [Installing Ruby on Rails](https://gorails.com/setup/osx/10.14-mojave).
 
-Project Explanation: index.html
-
-# Things Still Needed:
+### Things Still Needed:
 - Better styling/formatting inside pages. 
 - Clearer Navigation
 - User Homepage (view and cancel booked or offered rides).
