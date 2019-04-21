@@ -1,0 +1,58 @@
+<head>
+<!-- 	    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css"/> -->
+	    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" media="screen,projection"> -->
+<!-- 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+</head>
+
+	    <!-- Header -->
+      <header id="header" style="color: black">
+        <div class="inner">
+          <nav id="nav">
+                  <% if current_user %>
+                         <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/logout">Logout</a>
+                    <% else %>
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/sign_up">Sign Up</a>
+                    <% end %>
+          </nav>
+          <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+      </header>
+
+<body>
+	<div class="new_menu align-center">
+		<div class="container main align-center">
+			<div class="row">
+				<div class="col align-center" style="padding-top: 100px">
+					<form action="/new_trip/create" method="POST">
+						<label style="font-size:20px; text-align: center">
+							New Trip Entry for <%= current_user.username %>
+						</label>
+						<p>
+							<label for="id_title">City from and to (ex: Edinburg to Mcallen):</label>
+							<input type="text" name="title" autofocus maxlength="254">
+						</p>
+						<p>
+							<label for="id_price">Price:</label>
+							<input type="number" step="any" name="price">
+						</p>
+						<p>
+							<label for="id_time">Time Leaving:</label>
+							<input type="time" name="time">
+						</p>
+						<p>
+							<label for="id_phone">Phone #:</label>
+							<input type="text" name="phone" autofocus maxlength="254">
+						</p>
+						<p>
+							<button class="btn waves-effect waves-light submit" name="submit">Submit</button>
+							<input type="hidden" name="Submit" autofocus maxlength="254">
+						</p>
+					</form>
+ 				</div>
+			</div>
+		</div> 
+	</div>
+</body>

@@ -1,0 +1,36 @@
+<head>
+	    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+</head>
+
+	    <!-- Header -->
+      <header id="header" style="color: black">
+        <div class="inner">
+          <nav id="nav">
+                <a class="nav-link" href="/">Home</a>
+          </nav>
+          <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+      </header>
+
+<body>
+	<div class="container main"">
+		<div class="row">
+			<div class="col align-center" style="padding-top: 100px">
+				<form action="/process_login" method="POST">
+					<p>
+						<label for="id_email">Email:</label>
+						<input type="text" name="email" autofocus maxlength="254"><br/>
+					</p>
+					<p>
+						<label for="id_password">Password:</label>
+						<input type="password" name="password"><br/><br/>
+					</p>
+					<p>
+						<button class="btn waves-effect waves-light submit" name="submit">Log In</button>
+						<input type="hidden" name="next" value="/" autofocus maxlength="254">
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,57 @@
+<head>
+<!-- 	    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css"/> -->
+	    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" media="screen,projection"> -->
+<!-- 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+</head>
+
+<div class="jumbotron">
+	    <!-- Header -->
+      <header id="header" style="color: black">
+        <div class="inner">
+          <nav id="nav">
+                  <% if current_user %>
+                         <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/logout">Logout</a>
+                    <% else %>
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/sign_up">Sign Up</a>
+                    <% end %>
+          </nav>
+          <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+      </header>
+	<div class="container">
+		<div class="title" style="text-align:center; padding-top: 100px">
+			<h2 style="font-size:24px">
+				Available Trips
+			</h2>
+		</div></br>
+
+		<% @trips.each do |c| %>
+				<h2 style="font-size:20px">
+					<%= c.trip_title %>
+				</h2>
+				<p>
+					<% @users.each do |u| %>
+						<% if u.id == c.driver_id %>
+							Driver: <%= u.username %></br>
+						<% end %>
+					<% end %>
+					Time: <%= c.time %></br>
+					Price: <%= c.trip_price %></br>
+					Drivers Phone #: <%= c.phone %></br>
+				</p>
+				<form action="/bookit" method="POST">
+				<input type="hidden" name="trip_id" value= "<%= c.id %>">
+				<input type="hidden" name="trip_title" value= "<%= c.trip_title %>">
+				<input type="hidden" name="driver_id" value= "<%= c.driver_id %>">
+				<input type="hidden" name="trip_price" value= "<%= c.trip_price %>">
+				<input type="hidden" name="trip_time" value= "<%= c.time %>">
+				<input type="hidden" name="user_id" value= "<%= current_user.id %>">
+				<input type="hidden" name="driver_phone" value= "<%= c.phone %>">
+				<input type="submit" name="Select" value="Select" class="btn btn-secondary btn-sm" role="button">
+			</form></br>	
+		<% end %>
+	</div>
+</div>
