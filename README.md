@@ -20,7 +20,7 @@ Program built with Ruby on Rails, need working environment to run.
 ### Things Still Needed:
 - Better styling/formatting inside pages. 
 - Clearer Navigation
-- User Homepage (view and cancel booked or offered rides).
+- User Profile (view and cancel booked or offered rides).
 - Payment and Confirmation.
 - Code cleanup
 - Notifications
